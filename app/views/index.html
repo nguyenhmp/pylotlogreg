@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Pylot</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+  </head>
+  <body>
+    <h1>Registration</h1>
+    <form id="create_user" action="/register" method="POST">
+    	First Name:<input type="text" name="first_name"><br>
+    	Last Name:<input type="text" name="last_name"><br>
+    	Email:<input type="email" name="email"><br>
+    	Password (at least 8 characters):<input type="password" name="password"><br>
+    	Password Confirmation:<input type="password" name="confirmation"><br>
+    	<input type="submit" name="submit" value="Register">
+    </form>
+    {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                {% for message in messages %}
+                <p>{{message}}</p>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+    <h1>Login</h1>
+    <form id="login" action="/login" method="POST">
+    	Email:<input type="email" name="email"><br>
+    	Password:<input type="password" name="password"><br>
+    	<input type="submit" name="submit" value="Login">
+    </form>
+  </body>
+</html>
